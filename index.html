@@ -173,6 +173,7 @@ section{padding:72px 0}
 .duo .phone{margin:8px 0 0}
 .shot-card{width:100%;max-width:420px;margin:8px 0 0;border:1px solid var(--glass-line);border-radius:16px;overflow:hidden;background:#0A0D12}
 .shot-card img{width:100%}
+.cap{font-size:13px;text-align:center;margin-top:12px;color:var(--body)}
 @media (max-width:760px){.duo{grid-template-columns:1fr}}
 
 /* Pricing */
@@ -249,8 +250,8 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
   </div>
 
   <div class="facts glass" role="list">
-    <div class="fact" role="listitem"><span class="ms" aria-hidden="true">schedule</span>Live stats refresh every 30 seconds</div>
-    <div class="fact" role="listitem"><span class="ms" aria-hidden="true">trending_up</span>Odds from every major sportsbook</div>
+    <div class="fact" role="listitem"><span class="ms" aria-hidden="true">schedule</span>Scores and stats update live</div>
+    <div class="fact" role="listitem"><span class="ms" aria-hidden="true">trending_up</span>Odds from multiple sportsbooks, best price marked (Pro)</div>
     <div class="fact" role="listitem"><span class="ms" aria-hidden="true">task_alt</span>Bets settle automatically at game end</div>
     <div class="fact" role="listitem"><span class="ms" aria-hidden="true">person_off</span>No account or login required</div>
   </div>
@@ -265,10 +266,10 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
     <div class="grid3">
       <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">photo_camera</span></div><h3>Scan Any Scoreboard</h3><p>Aim at a live NBA, NFL or MLB game on TV and we'll find it in seconds. No typing, no searching. No game on? The Games tab shows today's slate without the camera.</p></article>
       <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">query_stats</span></div><h3>Live Player And Team Stats</h3><p>Full box scores with a Today and a Seasonal view, so tonight's line sits next to the full-season picture.</p></article>
-      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">trending_up</span></div><h3>Live Odds By Book</h3><p>Compare lines side by side with the best price marked. Prediction-market prices and a live price chart sit right above the tabs.</p></article>
-      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">receipt_long</span></div><h3>Track Every Bet Live</h3><p>Import a DraftKings bet by link, screenshot, Photos, paste or the share sheet. Every pick tracks against real stats. Anything unclear waits for you. Nothing is guessed.</p></article>
+      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">trending_up</span></div><h3>Live Odds By Book</h3><p>DraftKings lines are free. Statis Pro adds more sportsbooks side by side, with the best price marked. Polymarket prices and a live price chart sit right above the tabs when a market exists for the game.</p></article>
+      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">receipt_long</span></div><h3>Track Every Bet Live</h3><p>Import a DraftKings bet by link, screenshot, Photos, paste or the share sheet. Slips from other sportsbooks are read from a screenshot, best effort. Every pick tracks against real stats. Anything unclear waits for you. Nothing is guessed.</p></article>
       <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">favorite</span></div><h3>My Games And Favorites</h3><p>Save the games you care about. Live, upcoming and final sit in clean NBA, NFL and MLB sections, so your night is one screen.</p></article>
-      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">ios_share</span></div><h3>Share Settled Bets</h3><p>Turn a finished bet into a clean card in feed or story size. Settled results only, so nobody can tail a live pick.</p></article>
+      <article class="card glass"><div class="ico"><span class="ms" aria-hidden="true">ios_share</span></div><h3>Share Any Bet</h3><p>One tap turns a bet into a clean card you can share as an image, in feed or story size. Open bets show as Live or Open. Settled bets show as Won, Lost or Cashed out.</p></article>
     </div>
   </div>
 </section>
@@ -292,14 +293,14 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
     <div>
       <span class="label">My Bets</span>
       <h2>Your slip, tracked pick by pick.</h2>
-      <p>Add a bet and we'll match it to the game, then check every pick against live stats about every 30 seconds. When the game ends, the bet settles and lands in your analytics. A slip that can't be read or matched waits in the Blocked Inbox so you can fix it.</p>
+      <p>Add a bet and we'll match it to the game, then check every pick against live stats as the game goes on. When the game ends, the bet settles and lands in your analytics. A slip that can't be read or matched waits in the Blocked Inbox so you can fix it.</p>
       <ul class="ticks">
-        <li><span class="ms" aria-hidden="true">check_circle</span>Import by DraftKings link, screenshot, Photos, paste or share sheet</li>
+        <li><span class="ms" aria-hidden="true">check_circle</span>Import by DraftKings link, screenshot, Photos, paste or share sheet. Other sportsbooks: screenshot, best effort</li>
         <li><span class="ms" aria-hidden="true">check_circle</span>Live progress on every prop</li>
         <li><span class="ms" aria-hidden="true">check_circle</span>Auto-settlement, with a clear prompt when it needs you</li>
       </ul>
     </div>
-    <div class="phone"><img src="assets/bets.jpg" width="529" height="1150" alt="My Bets screen with open bets and live scores" loading="lazy"></div>
+    <div><div class="phone"><img src="assets/bets.jpg" width="529" height="1150" alt="My Bets screen with open bets and live scores, shown with sample data" loading="lazy"></div><p class="cap">Sample data</p></div>
   </div>
 </section>
 
@@ -314,7 +315,7 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
     <article class="card glass">
       <span class="label">Share card</span>
       <h3>Post the result. Win or lose.</h3>
-      <p>One tap turns a settled bet into a clean card sized for your feed or your story. Real results, shared after the game is final.</p>
+      <p>One tap turns a bet into a clean card sized for your feed or your story, shared as an image. Open bets show as Live or Open. Settled bets show as Won, Lost or Cashed out.</p>
       <div class="shot-card"><img src="assets/share.jpg" width="807" height="900" alt="A settled bet share card in feed size, showing a won three-leg parlay with sample data" loading="lazy"></div>
     </article>
   </div>
@@ -344,7 +345,7 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
         <div class="or">or $59.99 / year</div>
         <ul>
           <li><span class="ms" aria-hidden="true">check</span>Everything in Free</li>
-          <li><span class="ms" aria-hidden="true">check</span>Odds from every sportsbook, best price marked</li>
+          <li><span class="ms" aria-hidden="true">check</span>Odds from multiple sportsbooks, best price marked</li>
           <li><span class="ms" aria-hidden="true">check</span>Advanced Analytics: profit and loss, ROI, win rate, calendar</li>
         </ul>
       </article>
@@ -359,7 +360,7 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
     <div class="faq">
       <details class="glass"><summary>Do I need an account?</summary><p>No. There is no sign-up or login. Statis works as soon as you open it.</p></details>
       <details class="glass"><summary>Is Statis a sportsbook?</summary><p>No. Statis does not accept wagers or hold money. It helps you follow games and track bets you placed elsewhere.</p></details>
-      <details class="glass"><summary>Which sports and books work?</summary><p>NBA, NFL and MLB games. Bet import works with DraftKings today, by link, screenshot, Photos, paste or the share sheet.</p></details>
+      <details class="glass"><summary>Which sports and books work?</summary><p>NBA, NFL and MLB games. DraftKings bets import by link, screenshot, Photos, paste or the share sheet. Slips from other sportsbooks are read from a screenshot, best effort.</p></details>
       <details class="glass"><summary>What if a bet can't be settled automatically?</summary><p>We never guess. If a pick can't be graded with confidence, Statis asks you how the bet ended.</p></details>
     </div>
   </div>
