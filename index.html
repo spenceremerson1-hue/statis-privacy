@@ -32,7 +32,7 @@
   1. Set APP_LIVE to true.
   2. Paste the real App Store link into STORE_URL.
   Every button then reads "Download on the App Store" with Apple's badge and links there.
-  While APP_LIVE is false (or STORE_URL is empty), every button reads "Coming Soon" and goes nowhere.
+  While APP_LIVE is false (or STORE_URL is empty), the Notify Me links and the waitlist form show instead (class when-soon).
 -->
 <script>
   var APP_LIVE = false;
@@ -203,6 +203,20 @@ details p{padding:0 22px 20px}
 .final h2{font-size:clamp(32px,5vw,48px);margin:0 0 14px}
 .final p{max-width:32em;margin:0 auto 26px}
 .final .cta-row{justify-content:center}
+.final .fine{margin:16px auto 0;max-width:32em}
+#notify{scroll-margin-top:96px}
+.live-only{display:none}
+html[data-live="true"] .live-only{display:block}
+.notify{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;max-width:540px;margin:0 auto;text-align:left}
+.notify .field{flex:1 1 260px;display:flex;flex-direction:column;gap:6px}
+.notify label{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;color:#FFFFFF}
+.notify input[type="email"]{width:100%;min-height:54px;padding:0 16px;font:500 16px 'Manrope',system-ui,sans-serif;color:#FFFFFF;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.24);border-radius:14px}
+.notify input[type="email"]::placeholder{color:var(--body);opacity:1}
+.notify input[type="email"]:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;border-color:var(--indigo)}
+.notify .btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+.notify .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:540px){.notify .btn{flex:1 1 100%}}
 footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24px}
 .foot{display:grid;gap:20px}
 .foot-links{display:flex;flex-wrap:wrap;gap:0 18px}
@@ -225,7 +239,7 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
         <a href="#faq">FAQ</a>
       </div>
       <span>
-        <span class="btn btn-primary btn-sm when-soon" aria-disabled="true">Coming Soon</span>
+        <a class="btn btn-primary btn-sm when-soon" href="#notify">Notify Me</a>
         <a class="btn btn-primary btn-sm when-live" data-store href="#">Download</a>
       </span>
     </nav>
@@ -240,7 +254,7 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
       <h1>Live sports stats. Instant.</h1>
       <p class="lead">Point your camera at any live game on TV. We'll identify it and show scores, player stats and odds. Import your bets and we'll track every pick live, until it settles on its own.</p>
       <div class="cta-row">
-        <span class="btn btn-primary when-soon" aria-disabled="true"><span class="ms" aria-hidden="true">phone_iphone</span>Coming Soon</span>
+        <a class="btn btn-primary when-soon" href="#notify"><span class="ms" aria-hidden="true">phone_iphone</span>Notify Me</a>
         <a class="badge-link" data-store href="#"><img src="assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
         <a class="btn btn-glass" href="#how">See How It Works</a>
       </div>
@@ -368,11 +382,21 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
 
 <section>
   <div class="wrap">
-    <div class="final glass">
-      <h2><span class="hl-soon">Be there at launch.</span><span class="hl-live">Live sports stats. Instant.</span></h2>
-      <p>Free to start on iPhone. Start a 7-day Pro trial whenever you're ready.</p>
+    <div class="final glass" id="notify">
+      <h2><span class="hl-soon">Coming to iPhone.</span><span class="hl-live">Live sports stats. Instant.</span></h2>
+      <p class="when-soon">Get one email when Statis is on the App Store. Nothing else.</p>
+      <form class="notify when-soon" action="https://buttondown.com/api/emails/embed-subscribe/statis" method="post" target="_blank">
+        <div class="field">
+          <label for="notify-email">Email</label>
+          <input id="notify-email" type="email" name="email" required placeholder="you@email.com" autocomplete="email" inputmode="email">
+        </div>
+        <input type="hidden" name="tag" value="launch-waitlist">
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn btn-primary" type="submit">Notify Me</button>
+      </form>
+      <p class="fine when-soon">One email at launch. Unsubscribe anytime. List deleted within 30 days after launch.</p>
+      <p class="live-only">Free to start on iPhone. Start a 7-day Pro trial whenever you're ready.</p>
       <div class="cta-row">
-        <span class="btn btn-primary when-soon" aria-disabled="true">Coming Soon</span>
         <a class="badge-link" data-store href="#"><img src="assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store" loading="lazy"></a>
       </div>
     </div>
@@ -392,5 +416,16 @@ footer{border-top:1px solid var(--glass-line);padding:40px 0 48px;margin-top:24p
     <p class="copy">&copy; 2026 Statis</p>
   </div>
 </footer>
+<script>
+  // Waitlist honeypot: a real person never fills the hidden field, so drop the submit if it has text.
+  (function () {
+    var f = document.querySelector("form.notify");
+    if (!f) return;
+    f.addEventListener("submit", function (e) {
+      var hp = f.querySelector('input[name="website"]');
+      if (hp && hp.value) e.preventDefault();
+    });
+  })();
+</script>
 </body>
 </html>
