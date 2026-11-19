@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're on the list. | Statis</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0D1117">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Manrope:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap">
+<style>
+
+:root{
+  --bg:#0D1117; --body:#94A3B8; --indigo:#4F46E5; --green:#22C55E;
+  --glass:rgba(255,255,255,.05); --glass-line:rgba(255,255,255,.10);
+  --wrap:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.6;color:var(--body);background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 90% 520px at 50% 0%, rgba(45,27,105,.8), transparent 70%),
+    radial-gradient(ellipse 70% 700px at 0% 100%, rgba(59,27,140,.4), transparent 70%);
+  background-repeat:no-repeat;background-attachment:fixed;
+  min-height:100vh;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:#FFFFFF;text-underline-offset:3px}
+a:hover{color:#C7D2FE}
+:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4,.btn,.label{font-family:'Outfit',system-ui,sans-serif}
+h1,h2,h3,h4{color:#FFFFFF;line-height:1.12;font-weight:700}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:#FFFFFF;color:#000;padding:12px 16px;border-radius:10px;z-index:50}
+.skip:focus{left:8px}
+
+/* Wordmark */
+.wm{font-family:'Archivo',system-ui,sans-serif;font-weight:700;letter-spacing:-.031em;color:#FFFFFF;
+    text-decoration:none;display:inline-flex;align-items:center;justify-self:start;min-height:44px;line-height:1;font-size:26px}
+.wm-i{position:relative;display:inline-block}
+.wm-dot{position:absolute;left:50%;top:.27em;width:.135em;height:.135em;border-radius:50%;
+    background:#7BF29A;box-shadow:0 0 .32em .06em rgba(123,242,154,.85);
+    transform:translate(-50%,-50%);animation:wmblink 2.4s ease-in-out infinite}
+@keyframes wmblink{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:.6;transform:translate(-50%,-50%) scale(.88)}}
+@media (prefers-reduced-motion:reduce){.wm-dot{animation:none}html{scroll-behavior:auto}}
+
+/* Glass */
+.glass{background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;
+    border-radius:14px;font-weight:700;font-size:17px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--indigo);color:#FFFFFF}
+.btn-primary:hover{background:#4338CA;color:#FFFFFF}
+.btn-glass{background:rgba(255,255,255,.20);color:#FFFFFF;border-color:rgba(255,255,255,.14);
+    -webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px)}
+.btn-glass:hover{background:rgba(255,255,255,.28);color:#FFFFFF}
+.btn[aria-disabled="true"]{cursor:default}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px;border-radius:12px}
+.ms{font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;font-size:24px;line-height:1;
+    display:inline-block;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;
+    -webkit-font-feature-settings:'liga';font-feature-settings:'liga';-webkit-font-smoothing:antialiased;flex:none;
+    width:24px;overflow:hidden}
+
+
+.label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--body)}
+.chip{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;
+    background:#FFFFFF;color:#000000;font-family:'Outfit',sans-serif;font-weight:600;font-size:13px}
+
+/* Nav */
+header{position:sticky;top:0;z-index:20;padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;min-height:64px;background:rgba(13,17,23,.6)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:var(--body);
+    text-decoration:none;font-family:'Outfit',sans-serif;font-weight:500;font-size:15px;border-radius:10px}
+.nav-links a:hover{color:#FFFFFF}
+@media (max-width:820px){.nav-links{display:none}}
+
+/* Message pages */
+.msg{padding:96px 0 120px;text-align:center}
+.msg-card{max-width:640px;margin:0 auto;padding:56px 28px}
+.msg-card h1{font-size:clamp(34px,6vw,52px);letter-spacing:-.02em;margin:0 0 16px}
+.msg-card p{font-size:18px;max-width:28em;margin:0 auto}
+.msg-card .btn{margin-top:28px}
+footer{border-top:1px solid var(--glass-line);padding:24px 0 40px}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:#FFFFFF;font-family:'Outfit',sans-serif;font-weight:500;font-size:15px}
+@media (max-width:480px){.msg{padding:48px 0 72px}.msg-card{padding:40px 20px}.msg-card p{font-size:17px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap">
+    <nav class="nav glass" aria-label="Main">
+      <a class="wm" href="/" aria-label="Statis home">Stat<span class="wm-i">&#305;<i class="wm-dot" aria-hidden="true"></i></span>s</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="msg">
+  <div class="wrap">
+    <div class="msg-card glass">
+      <h1>You're on the list.</h1>
+      <p>One email when Statis is on the App Store. Nothing else.</p>
+      <a class="btn btn-glass" href="/">Back to the homepage</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap foot-links"><a href="/privacy.html">Privacy</a></div>
+</footer>
+</body>
+</html>
